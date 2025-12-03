@@ -8,12 +8,12 @@ pipeline {
         ACC_ID = "843303282697"
      }
      options {
-            timeout(time: 30, unit: 'MINUTES') 
-            disableConcurrentBuilds()
+            timeout(time: 30, unit: 'MINUTES')  // this shows max time to run a pipeline
+            disableConcurrentBuilds()   // this disables the parallel builds and used mostly in PROD pipelines
             ansiColor('xterm')   // to enable the colurs in the console output
              }
     stages {
-        stage('Read package.json') {
+        stage('Read package.json') {  // this stage is to get the appVersion from the package.json file
             steps {
                 script {
                     def packageJson = readJSON file: 'package.json'
@@ -22,14 +22,14 @@ pipeline {
                 }
             }
         }
-        stage('Installing Dependencies') {
+        stage('Installing Dependencies') {  // this stage is to install the dependencies
             steps {
                 sh """
                     npm install
                 """
             }
         }
-        stage('Docker Build') {
+        stage('Docker Build') { // what ever we mentioned inside this stage are the commmands given in the AWS ECR itself, but we have to modify little according to our project
             steps {
                 sh """
                     aws ecr get-login-password --region ${REGION} | docker login --username AWS --password-stdin ${ACC_ID}.dkr.ecr.us-east-1.amazonaws.com
