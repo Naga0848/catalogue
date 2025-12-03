@@ -10,7 +10,7 @@ pipeline {
      options {
             timeout(time: 30, unit: 'MINUTES') 
             disableConcurrentBuilds()
-            ansiColor('xterm')
+            ansiColor('xterm')   // to enable the colurs in the console output
              }
     stages {
         stage('Read package.json') {
