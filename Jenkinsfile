@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label 'AGENT-1'
+        label 'AGENT-1'  // this is the Label which we mentioned while configuring the Jenkins agent and this pipeline gets exected, when these both the values match
     }
      environment { 
         appVersion = ''
