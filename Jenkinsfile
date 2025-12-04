@@ -6,6 +6,10 @@ pipeline {
         appVersion = ''
         REGION = "us-east-1"
         ACC_ID = "843303282697"
+        PROJECT = "Roboshp"
+        COMPONENT = "catalogue"
+
+
      }
      options {
             timeout(time: 30, unit: 'MINUTES')  // this shows max time to run a pipeline
