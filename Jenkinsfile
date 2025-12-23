@@ -5,7 +5,7 @@ pipeline {
      environment { 
         appVersion = ''
         REGION = "us-east-1"
-        ACC_ID = "843303282697"
+        ACC_ID = "324512687633"
         PROJECT = "roboshop"
         COMPONENT = "catalogue"
 
